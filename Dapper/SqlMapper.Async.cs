@@ -672,7 +672,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -688,7 +688,7 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TReturn> map, string splitOn = "Id") =>
-            MultiMapAsync<TFirst, TSecond, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
+            MultiMapAsync<TFirst, TSecond, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
 
         /// <summary>
         /// Perform a asynchronous multi-mapping query with 3 input types. 
@@ -709,7 +709,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, TThird, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, TThird, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -726,7 +726,7 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TThird, TReturn> map, string splitOn = "Id") =>
-            MultiMapAsync<TFirst, TSecond, TThird, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
+            MultiMapAsync<TFirst, TSecond, TThird, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
 
         /// <summary>
         /// Perform a asynchronous multi-mapping query with 4 input types. 
@@ -748,7 +748,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, DontMap, DontMap, DontMap, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -766,7 +766,7 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, string splitOn = "Id") =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, DontMap, DontMap, DontMap,  DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn, command, map, splitOn);
 
         /// <summary>
         /// Perform a asynchronous multi-mapping query with 5 input types. 
@@ -789,7 +789,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, DontMap, DontMap, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -808,7 +808,7 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, string splitOn = "Id") =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap ,TReturn>(cnn, command, map, splitOn);
 
         /// <summary>
         /// Perform a asynchronous multi-mapping query with 6 input types. 
@@ -832,7 +832,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, DontMap, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -852,7 +852,7 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn> map, string splitOn = "Id") =>
-             MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, DontMap, TReturn>(cnn, command, map, splitOn);
+             MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn, command, map, splitOn);
 
         /// <summary>
         /// Perform a asynchronous multi-mapping query with 7 input types. 
@@ -877,7 +877,7 @@ namespace Dapper
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(this IDbConnection cnn, string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn> map, object param = null, IDbTransaction transaction = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null) =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(cnn,
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap,DontMap,DontMap, TReturn>(cnn,
                 new CommandDefinition(sql, param, transaction, commandTimeout, commandType, buffered ? CommandFlags.Buffered : CommandFlags.None, default(CancellationToken)), map, splitOn);
 
         /// <summary>
@@ -898,9 +898,9 @@ namespace Dapper
         /// <param name="map">The function to map row types to the return type.</param>
         /// <returns>An enumerable of <typeparamref name="TReturn"/>.</returns>
         public static Task<IEnumerable<TReturn>> QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(this IDbConnection cnn, CommandDefinition command, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn> map, string splitOn = "Id") =>
-            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(cnn, command, map, splitOn);
+            MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, DontMap, TReturn>(cnn, command, map, splitOn);
 
-        private static async Task<IEnumerable<TReturn>> MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(this IDbConnection cnn, CommandDefinition command, Delegate map, string splitOn)
+        private static async Task<IEnumerable<TReturn>> MultiMapAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth, TEleventh, TTwelfth, TThirteenth, TFourteenth, TFifthteenth, TReturn>(this IDbConnection cnn, CommandDefinition command, Delegate map, string splitOn)
         {
             object param = command.Parameters;
             var identity = new Identity(command.CommandText, command.CommandType, cnn, typeof(TFirst), param?.GetType(), new[] { typeof(TFirst), typeof(TSecond), typeof(TThird), typeof(TFourth), typeof(TFifth), typeof(TSixth), typeof(TSeventh) });
@@ -913,7 +913,7 @@ namespace Dapper
                 using (var reader = await ExecuteReaderWithFlagsFallbackAsync(cmd, wasClosed, CommandBehavior.SequentialAccess | CommandBehavior.SingleResult, command.CancellationToken).ConfigureAwait(false))
                 {
                     if (!command.Buffered) wasClosed = false; // handing back open reader; rely on command-behavior
-                    var results = MultiMapImpl<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(null, CommandDefinition.ForCallback(command.Parameters), map, splitOn, reader, identity, true);
+                    var results = MultiMapImpl<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth, TNineth, TTenth, TEleventh, TTwelfth, TThirteenth, TFourteenth, TFifthteenth, TReturn>(null, CommandDefinition.ForCallback(command.Parameters), map, splitOn, reader, identity, true);
                     return command.Buffered ? results.ToList() : results;
                 }
             }
